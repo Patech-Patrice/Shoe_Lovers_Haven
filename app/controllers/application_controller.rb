@@ -16,17 +16,4 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-
-
-
-  #get '/patrices-favorite-shoe' do
-    #{}"Christian Louboutin Pink Pigalle Follies"
-#  end
-
-  #get '/show-new-shoe' do
-    #Shoe.create!(name: "Pigalle Follies", brand: "Christian Louboutin", style: "Heel" )
-
-
-# end
-
 end

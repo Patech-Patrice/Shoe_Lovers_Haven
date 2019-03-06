@@ -36,11 +36,7 @@ post '/login' do
 #signup
 
 get '/signup' do
-    #if !logged_in?
-      #erb :signup
-    #else
-      #redirect to '/shoes'
-    #end
+  
   end
 
   #post '/signup' do
