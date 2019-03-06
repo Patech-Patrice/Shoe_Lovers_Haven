@@ -2,7 +2,7 @@
 source "https://rubygems.org"
 # gem "rails"
 gem 'sinatra'
-gem 'activerecord', :require => 'active_record'
+gem 'activerecord', '4.2.5', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'rake'
 gem 'require_all' #=> Helps to load dependencies
@@ -11,6 +11,6 @@ gem 'thin'
 gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
-gem "tux"
+gem 'tux', '~> 0.3.0'
 gem 'rack-flash3'
 gem 'sinatra-flash'

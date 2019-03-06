@@ -6,5 +6,6 @@ class CreateShoeEntries < ActiveRecord::Migration[5.2]
       t.integer :style_id
       t.integer :user_id
       t.timestamps null: false
-  end
+   end
+ end
 end
