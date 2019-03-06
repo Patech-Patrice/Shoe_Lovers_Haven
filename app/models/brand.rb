@@ -1,3 +1,3 @@
 class Brands < ActiveRecord::Base
-  belongs_to :shoe_entry
+  belongs_to :shoe_entries
 end
