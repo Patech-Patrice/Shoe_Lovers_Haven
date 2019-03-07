@@ -9,17 +9,24 @@ get '/login' do
     #redirect to '/shoes'
 #  end
 end
+
 #this route receives the login form
-#finds the user and logs user in(create a session)
 post '/login' do
-  binding.pry
-   #user = User.find_by(:email => params[:email])
-   #if user && user.authenticate(params[:password])
-     #session[:user_id] = user.id
-     #redirect '/shoes'
-   #else
-     #redirect to '/signup'
-   #end
+  # params looks like: {email: "user@user.com", password: "password"}
+   # Find the user
+   user = User.find_by(:email => params[:email])
+   #Authenticate the user
+   if user && user.authenticate(params[:password])
+     # if authentication is validated, log the user in(create session)
+     session[:user_id] = user.id
+     # redirect to the user's show page
+     puts session
+     redirect '/show'
+   else
+     #tell the user they entered invalid credentials
+     # redirect user to login page
+     redirect to '/login'
+   end
  end
 
 
@@ -36,7 +43,7 @@ post '/login' do
 #signup
 
 get '/signup' do
-  
+
   end
 
   #post '/signup' do
@@ -49,6 +56,11 @@ get '/signup' do
       #redirect to '/shoes'
     #end
   #end
+
+  # user SHOW route
+  get '/show' do
+    "This will be the user show route"
+  end
 
 
 
