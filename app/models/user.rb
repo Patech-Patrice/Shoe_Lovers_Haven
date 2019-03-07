@@ -1,6 +1,9 @@
 
 class User < ActiveRecord::Base
-  validates_presence_of :name, :email, :password
-  has_secure_password #accessed through bcrypt which allows us to use the authenticate method
+
+ #accessed through bcrypt which allows us to use the authenticate method
+  has_secure_password
   has_many :shoe_entries
+  #accessed through bcrypt which allows us to use the authenticate method
+
 end

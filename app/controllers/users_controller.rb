@@ -1,6 +1,31 @@
+require "erb"
 class UsersController < ApplicationController
 
 #login route renders the login form
+
+get '/signup' do
+  #if !logged_in?
+       erb :'users/signup'
+    #else
+      #redirect to '/show'
+    end
+#end
+
+post '/signup' do
+  #if params[:name] == "" || params[:email] == "" || params[:password] == ""
+    if params[:name] != "" && params[:email] != "" && params[:password] != ""
+      #valid input
+       @user = User.new(name: params[:name], email: params[:email], password: params[:password])
+    redirect to '/users/show'
+
+  else
+      @user = User.new(name: params[:name], email: params[:email], password: params[:password])
+      @user.save
+    session[:user_id] = @user.id
+    #redirect to '/users/show'
+  end
+end
+
 
 get '/login' do
   #if !logged_in?
@@ -20,7 +45,7 @@ post '/login' do
      # if authentication is validated, log the user in(create session)
      session[:user_id] = user.id
      # redirect to the user's show page
-     puts session
+     #puts session
      redirect '/show'
    else
      #tell the user they entered invalid credentials
@@ -30,39 +55,9 @@ post '/login' do
  end
 
 
-#logout
-#get '/logout' do
-  #if logged_in?
-    #session.destroy
-    #redirect to '/login'
-  #else
-    #redirect to '/'
-  #end
-#end
-
-#signup
-
-get '/signup' do
-
+# user SHOW route
+  get '/users/:id' do
+    @user = User.find_by(id: params[:id])
+    erb :'users/show'
   end
-
-  #post '/signup' do
-    #if params[:name] == "" || params[:email] == "" || params[:password] == ""
-      #redirect to '/signup'
-    #else
-      #@user = User.new(name: params[:name], email: params[:email], password: params[:password])
-    #  @user.save
-      #session[:user_id] = @user.id
-      #redirect to '/shoes'
-    #end
-  #end
-
-  # user SHOW route
-  get '/show' do
-    "This will be the user show route"
-  end
-
-
-
-
 end
