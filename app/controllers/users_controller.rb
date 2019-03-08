@@ -16,13 +16,13 @@ post '/signup' do
     if params[:name] != "" && params[:email] != "" && params[:password] != ""
       #valid input
        @user = User.new(name: params[:name], email: params[:email], password: params[:password])
-    redirect to '/users/show'
+       @user.save
+       #binding.pry
+       session[:user_id] = @user.id
+    redirect to "/users/#{@user.id}"
 
   else
-      @user = User.new(name: params[:name], email: params[:email], password: params[:password])
-      @user.save
-    session[:user_id] = @user.id
-    #redirect to '/users/show'
+    redirect to '/signup'
   end
 end
 
