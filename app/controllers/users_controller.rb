@@ -1,13 +1,11 @@
 require "erb"
 class UsersController < ApplicationController
 
-#login route renders the login form
-
 get '/signup' do
   #if !logged_in?
        erb :'users/signup'
     #else
-      #redirect to '/show'
+      #redirect to
     end
 #end
 
@@ -22,6 +20,8 @@ post '/signup' do
     redirect to "/users/#{@user.id}"
 
   else
+    #shows not valid input
+    #good UX would be to show a message to the user giving them an error
     redirect to '/signup'
   end
 end
@@ -31,7 +31,7 @@ get '/login' do
   #if !logged_in?
    erb :login
   #else
-    #redirect to '/shoes'
+    redirect to '/login'
 #  end
 end
 
@@ -43,7 +43,7 @@ post '/login' do
    #Authenticate the user
    if user && user.authenticate(params[:password])
      # if authentication is validated, log the user in(create session)
-     session[:user_id] = user.id
+     session[:user_id] = user.id #logs the user in
      # redirect to the user's show page
      #puts session
      redirect '/show'
@@ -54,10 +54,16 @@ post '/login' do
    end
  end
 
-
 # user SHOW route
   get '/users/:id' do
     @user = User.find_by(id: params[:id])
+
     erb :'users/show'
+  end
+
+  get '/logout' do
+    #if logged_in?
+    session.clear
+    redirect '/'
   end
 end
