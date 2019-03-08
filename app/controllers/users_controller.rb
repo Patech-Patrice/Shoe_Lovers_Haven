@@ -28,28 +28,30 @@ end
 
 
 get '/login' do
-  #if !logged_in?
-   erb :login
-  #else
-    redirect to '/login'
-#  end
+  #user = User.find_by(:email => params[:email])
+  if !logged_in?
+    redirect to "/users/#{@user.id}"
+  else
+  erb :login
+ end
 end
 
 #this route receives the login form
 post '/login' do
-  # params looks like: {email: "user@user.com", password: "password"}
+
    # Find the user
-   user = User.find_by(:email => params[:email])
+   @user = User.find_by(:email => params[:email])
    #Authenticate the user
-   if user && user.authenticate(params[:password])
+   if @user && @user.authenticate(params[:password])
      # if authentication is validated, log the user in(create session)
-     session[:user_id] = user.id #logs the user in
+     session[:user_id] = @user.id #logs the user in
      # redirect to the user's show page
      #puts session
-     redirect '/show'
+     redirect to "/users/#{@user.id}"
    else
      #tell the user they entered invalid credentials
      # redirect user to login page
+     #give user an error that login was incorrect
      redirect to '/login'
    end
  end
