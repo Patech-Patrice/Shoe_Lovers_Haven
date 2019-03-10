@@ -28,18 +28,12 @@ end
 
 
 get '/login' do
-  #user = User.find_by(:email => params[:email])
-  if !logged_in?
-    redirect to "/users/#{@user.id}"
-  else
   erb :login
- end
 end
 
 #this route receives the login form
 post '/login' do
-
-   # Find the user
+ # Find the user
    @user = User.find_by(:email => params[:email])
    #Authenticate the user
    if @user && @user.authenticate(params[:password])
