@@ -1,20 +1,16 @@
 class ShoeEntriesController < ApplicationController
 
   #show user list of shoes
-  get '/shoe_entries' do
-    "Here we will show the user their shoes"
+  get '/shoe_entries/new' do
+    #"Here we will show the user their shoes"
+    erb :'/shoe_entries/new'
   end
 
-  #create new shoe entry
+  # post request to create a new shoe entry
 
 
-  #show one shoe entry
+  #show route shoe entry
 
-
-
-  #edit a shoe entry
-
-
-  #delete shoe entry
+  #index route for all shoe entries
 
 end
