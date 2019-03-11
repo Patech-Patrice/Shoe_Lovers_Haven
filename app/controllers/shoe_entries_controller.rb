@@ -69,9 +69,12 @@ end
     set_shoe_entry
     if authorized_to_edit?(@shoe_entry)
       #delete the entry
+      @shoe_entry.destroy
       #go somewhere
+      redirect '/shoe_entries'
     else
       #go somewhere else not delete
+      redirect '/shoe_entries'
     end
 
     end
