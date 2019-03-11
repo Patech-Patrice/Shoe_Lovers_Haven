@@ -1,1 +1,18 @@
 This is the show page for the shoe entries
+
+<p><%= @shoe_entry.name %></p>
+
+This is the show page.
+
+
+    <div class="nav">
+      <br>
+      <a href='/shoe_entries'><%= @shoe_entry.id %>/edit Edit Entry</a><br>
+        <a href='/shoe_entries'><%=@shoe_entry.id %> Delete Entry</a><br>
+        <form class="" action="/shoe_entries/<%= @shoe_entry.id %>" method="post"
+          <input type="hidden" name="_method" value="DELETE"
+          <input type ="submit" name="" value="Delete this Entry">
+
+      </form>
+        <a href='/logout'>Logout</a><br>
+      </div>
