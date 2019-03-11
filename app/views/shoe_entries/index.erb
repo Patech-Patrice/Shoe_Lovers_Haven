@@ -1,1 +1,7 @@
 This is the index page for shoe entries
+<% @shoe_entries.each do |shoe_entry| %>
+  <%= shoe_entry.name %><br><br>
+  <%= shoe_entry.brand_id %><br><br>
+  <%= shoe_entry.style_id %><br><br>
+  <%= shoe_entry.created_at %><br><br>
+<% end %>

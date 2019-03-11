@@ -1,5 +1,11 @@
 class ShoeEntriesController < ApplicationController
 
+  #index route for all shoe entries
+  get '/shoe_entries' do
+    @shoe_entries = ShoeEntry.all
+    erb :'shoe_entries/index'
+  end
+
   #show user list of shoes
   get '/shoe_entries/new' do
     #"Here we will show the user their shoes"
@@ -25,7 +31,11 @@ end
 
 
   #show route shoe entry
+  get '/shoe_entries/:id' do
+    @shoe_entry = ShoeEntry.find_by(id: params[:id])
+  erb :'shoe_entries/show'
+  end
 
-  #index route for all shoe entries
+
 
 end
