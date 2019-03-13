@@ -39,15 +39,12 @@ end
   get '/shoe_entries/:id/edit' do
     @shoe_entry = ShoeEntry.find_by(id: params[:id])
     if logged_in?
-      if authorized_to_edit?(@shoe_entry)
         erb :'/shoe_entries/edit'
       else
-        redirect "users/#{current_user.id}"
-      end
-    else
       redirect '/'
   end
 end
+
 
   patch '/shoe_entries/:id' do
     #find the shoe entry
@@ -67,21 +64,12 @@ end
 
   delete '/shoe_entries/:id' do
     @shoe_entry = ShoeEntry.find_by(id: params[:id])
-    if authorized_to_edit?(@shoe_entry)
+
       #delete the entry
       @shoe_entry.destroy
       #go somewhere
       redirect '/shoe_entries'
-    else
+
       #go somewhere else not delete
-      redirect '/shoe_entries'
-    end
-
-    end
-
-  #def set_shoe_entry
-    #@shoe_entry = ShoeEntry.find_by(params[:id])
-  #end
-
-
+end
 end

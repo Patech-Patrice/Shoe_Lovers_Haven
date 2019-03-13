@@ -8,8 +8,8 @@ SHOW PAGE FOR SHOE ENTRIES
 
     <div class="nav">
       <br>
-      <a href='/shoe_entries/edit'><%= @shoe_entry.id %> Edit Entry</a><br>
-        <a href='/shoe_entries/delete'><%=@shoe_entry.id %> Delete Entry</a><br>
+      <a href='/shoe_entries/<%=@shoe_entry.id%>/edit'><%= @shoe_entry.id %> Edit Entry</a><br>
+        <a href='/shoe_entries/<%=@shoe_entry.id%>/delete'><%=@shoe_entry.id %> Delete Entry</a><br>
         <form class="" action="/shoe_entries/<%= @shoe_entry.id %>" method="post"
           <input type="hidden" name="_method" value="DELETE"
           <input type ="submit" name="" value="Delete this Entry">
