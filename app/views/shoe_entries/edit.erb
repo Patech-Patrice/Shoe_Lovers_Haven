@@ -3,8 +3,14 @@
     <input id="hidden" type="hidden" name="_method" value="patch">
     <p>Shoe Name:</p> <input type="text" name="name" value= <%= @shoe_entry.name%> ><br>
     <br>
+    <input type="text" name="name" value="">
+    <label for="brand">Brand: </label>
+    <input type="text" name="brand_id" value="">
+    <label for="style">Style: </label>
+    <input type="text" name="style_id" value="">
 
-    <input type="submit" name="" value="Submit">
+    <button type="submit" name="" value="Submit">Submit</button>
+
   </form>
   <br><br><br>
   <form method="post" action="/shoe_entries/<%= @shoe_entry.id %>/delete">

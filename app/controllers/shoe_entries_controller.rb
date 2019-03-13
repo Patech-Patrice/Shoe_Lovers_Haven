@@ -62,14 +62,13 @@ end
   end
 end
 
-  delete '/shoe_entries/:id' do
+  delete '/shoe_entries/:id/delete' do
     @shoe_entry = ShoeEntry.find_by(id: params[:id])
-
       #delete the entry
       @shoe_entry.destroy
+      #flash message that item was successfully deleted
       #go somewhere
-      redirect '/shoe_entries'
-
+      redirect '/shoe_entries/new'
       #go somewhere else not delete
 end
 end
