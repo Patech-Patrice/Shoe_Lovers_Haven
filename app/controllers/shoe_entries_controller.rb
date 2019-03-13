@@ -37,7 +37,7 @@ end
   end
 
   get '/shoe_entries/:id/edit' do
-    set_shoe_entry
+    @shoe_entry = ShoeEntry.find_by(id: params[:id])
     if logged_in?
       if authorized_to_edit?(@shoe_entry)
         erb :'/shoe_entries/edit'
@@ -51,12 +51,12 @@ end
 
   patch '/shoe_entries/:id' do
     #find the shoe entry
-    set_shoe_entry
+    @shoe_entry = ShoeEntry.find_by(id: params[:id])
     if logged_in?
       if @shoe_entry.user == current_user
         #modify(update) the shoe entry
         @shoe_entry.update(name: params[:name], brand_id: params[:brand_id], style_id: params[:style_id])
-      redirect "/shoe_entries/#{current_user.id}"
+      redirect "/shoe_entries/#{current_user.id}/edit"
     else
       redirect "users/#{current_user.id}"
     end
@@ -66,7 +66,7 @@ end
 end
 
   delete '/shoe_entries/:id' do
-    set_shoe_entry
+    @shoe_entry = ShoeEntry.find_by(id: params[:id])
     if authorized_to_edit?(@shoe_entry)
       #delete the entry
       @shoe_entry.destroy
@@ -79,9 +79,9 @@ end
 
     end
 
-  def set_shoe_entry
-    @shoe_entry = ShoeEntry.find_by(params[:id])
-  end
+  #def set_shoe_entry
+    #@shoe_entry = ShoeEntry.find_by(params[:id])
+  #end
 
 
 end

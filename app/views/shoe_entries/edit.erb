@@ -1,0 +1,13 @@
+<center><h1>Edit Shoe Entry</h1><center><br><br><br><br>
+  <form method="post" action="/shoe_entries/<%= @shoe_entry.id %>/<%= @shoe_entry.id %>">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <p>Shoe Name:</p> <input type="text" name="name" value= <%= @shoe_entry.name%> ><br>
+    <br>
+
+    <input type="submit" name="" value="Submit">
+  </form>
+  <br><br><br>
+  <form method="post" action="/shoe_entries/<%= @shoe_entry.id %>/delete">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Shoe Entry">
+  </form>
