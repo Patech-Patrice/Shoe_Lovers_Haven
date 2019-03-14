@@ -10,6 +10,7 @@ SHOW PAGE FOR SHOE ENTRIES
 
 <h2><%= @shoe_entry.name %></h2>
 
+
       <br>
       <%  if @shoe_entry.user_id == current_user.id %>
       <a href='/shoe_entries/<%=@shoe_entry.id%>/edit'><%= @shoe_entry.id %> Edit Entry</a><br>

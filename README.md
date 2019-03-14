@@ -1,8 +1,6 @@
-# ShoeLoversHaven
+# TrueShoeLoversHaven
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/Shoe_Lovers_Haven`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to your True Shoe Lovers Haven. This is a simple app written in Sinatra, that organizes and indexes your shoe collection. Users have the ability to create, read, update, and delete their entries, in order to keep track of their collection.
 
 ## Installation
 
