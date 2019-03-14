@@ -1,17 +1,17 @@
 <center><h1>Edit Shoe Entry</h1><center><br><br><br><br>
-  <form method="post" action="/shoe_entries/<%= @shoe_entry.id %>/<%= @shoe_entry.id %>">
+  <form  class="" method="post" action="/shoe_entries/<%= @shoe_entry.id %>/<%= @shoe_entry.id %>">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
     <p>Shoe Name:</p> <input type="text" name="name" value= <%= @shoe_entry.name%> ><br>
     <br>
       <label for="brand">Brand: </label>
     <input type="text" name="name" value="">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
-    
+
   <input id="hidden" type="hidden" name="_method" value="PATCH">
     <label for="style">Style: </label>
     <input type="text" name="style_id" value="">
 
-    <button type="submit" name="" value="Submit">Submit</button>
+    <button type="submit" name="" value="Edit Entry">Edit Entry</button>
 
   </form>
   <br><br><br>

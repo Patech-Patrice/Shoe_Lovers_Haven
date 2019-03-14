@@ -38,28 +38,33 @@ end
   get '/shoe_entries/:id/edit' do
     @shoe_entry = ShoeEntry.find_by(id: params[:id])
     if logged_in?
+    if @shoe_entry.user == current_user
         erb :'/shoe_entries/edit'
       else
-      redirect '/'
-  end
-end
-
-
-  patch '/shoe_entries/:id' do
-    #find the shoe entry
-    @shoe_entry = ShoeEntry.find_by(id: params[:id])
-    if logged_in?
-      if @shoe_entry.user == current_user
-        #modify(update) the shoe entry
-        @shoe_entry.update(name: params[:name], brand_id: params[:brand_id], style_id: params[:style_id])
-      redirect "/shoe_entries/#{current_user.id}/edit"
-    else
       redirect "users/#{current_user.id}"
     end
   else
-    redirect '/'
-  end
+  redirect '/'
+ end
 end
+
+
+  # this method finds and modifies the shoe entry
+  patch '/shoe_entries/:id/:d' do
+    #find the shoe entry
+    @shoe_entry = ShoeEntry.find_by(id: params[:id])
+    #if logged_in?
+      if @shoe_entry.user == current_user
+        #modify(update) the shoe entry
+        @shoe_entry.update(name: params[:name], brand_id: params[:brand_id], style_id: params[:style_id])
+      redirect "/shoe_entries/#{current_user.id}"
+    end
+      #redirect "users/#{current_user.id}"
+    #end
+  #else
+    #redirect '/'
+  #end
+#end
 
   delete '/shoe_entries/:id' do
     @shoe_entry = ShoeEntry.find_by(id: params[:id])
@@ -69,5 +74,6 @@ end
       #go somewhere
       redirect '/shoe_entries/index'
       #go somewhere else not delete
+end
 end
 end
