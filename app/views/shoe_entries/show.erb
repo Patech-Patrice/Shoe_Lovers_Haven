@@ -1,19 +1,15 @@
 SHOW PAGE FOR SHOE ENTRIES
 
 
+
+
 <h2><%= @shoe_entry.name %></h2>
-
-
-
-
     <div class="nav">
       <br>
       <a href='/shoe_entries/<%=@shoe_entry.id%>/edit'><%= @shoe_entry.id %> Edit Entry</a><br>
-        <a href='/shoe_entries/<%=@shoe_entry.id%>/delete'><%=@shoe_entry.id %> Delete Entry</a><br>
-        <form class="" action="/shoe_entries/<%= @shoe_entry.id %>" method="post"
-          <input type="hidden" name="_method" value="DELETE"
-          <input type ="submit" name="" value="Delete this Entry">
-
+      
+        <form class="" method="POST" action="/shoe_entries/:id"<%= @shoe_entry.id %>/delete">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn btn-danger btn-sm">Delete Entry</button>
       </form>
-
       </div>

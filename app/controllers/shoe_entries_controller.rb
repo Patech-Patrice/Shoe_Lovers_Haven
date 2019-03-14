@@ -8,7 +8,6 @@ class ShoeEntriesController < ApplicationController
 
   #show user list of shoes
   get '/shoe_entries/new' do
-    #"Here we will show the user their shoes"
     erb :'/shoe_entries/new'
   end
 
@@ -30,7 +29,7 @@ class ShoeEntriesController < ApplicationController
 end
 
 
-  #show route shoe entry
+  #show route shoe entry; dynamic route
   get '/shoe_entries/:id' do
     @shoe_entry = ShoeEntry.find_by(id: params[:id])
   erb :'shoe_entries/show'
@@ -62,13 +61,13 @@ end
   end
 end
 
-  delete '/shoe_entries/:id/delete' do
+  delete '/shoe_entries/:id' do
     @shoe_entry = ShoeEntry.find_by(id: params[:id])
       #delete the entry
       @shoe_entry.destroy
       #flash message that item was successfully deleted
       #go somewhere
-      redirect '/shoe_entries/new'
+      redirect '/shoe_entries/index'
       #go somewhere else not delete
 end
 end
