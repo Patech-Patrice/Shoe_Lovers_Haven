@@ -53,27 +53,26 @@ end
   patch '/shoe_entries/:id/:d' do
     #find the shoe entry
     @shoe_entry = ShoeEntry.find_by(id: params[:id])
-    #if logged_in?
-      if @shoe_entry.user == current_user
+    if logged_in? && @shoe_entry.user == current_user
         #modify(update) the shoe entry
         @shoe_entry.update(name: params[:name], brand_id: params[:brand_id], style_id: params[:style_id])
-      redirect "/shoe_entries/#{current_user.id}"
+      redirect "/shoe_entries/#{params[:id]}"
+    else
+      redirect "/users/#{current_user.id}/show"
     end
-      #redirect "users/#{current_user.id}"
-    #end
-  #else
-    #redirect '/'
-  #end
-#end
+    redirect '/'
+  end
 
-  delete '/shoe_entries/:id' do
+  delete '/shoe_entries/:id/delete' do
     @shoe_entry = ShoeEntry.find_by(id: params[:id])
+      if logged_in? && @shoe_entry.user == current_user
       #delete the entry
       @shoe_entry.destroy
       #flash message that item was successfully deleted
       #go somewhere
-      redirect '/shoe_entries/index'
-      #go somewhere else not delete
+      redirect '/shoe_entries'
+    else
+      redirect '/shoe_entries'
 end
 end
 end
