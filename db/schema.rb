@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20190306181310) do
 
   create_table "shoe_entries", force: :cascade do |t|
     t.string   "name"
-    t.integer  "brand_id"
-    t.integer  "style_id"
+    t.string   "brand"
+    t.string   "style"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
