@@ -18,15 +18,14 @@ class ShoeEntriesController < ApplicationController
     if !logged_in? && params[:name] != ""
       redirect '/'
     else
-    #Only show entries with content
-      #if params[:name] != "" && params[:brand_id] != "" && params[:style_id] != ""
         #create a new entry
         @shoe_entry = ShoeEntry.create(name: params[:name], brand_id: params[:brand_id], style_id: params[:style_id], user_id: current_user.id)
+        flash[:message] = "Entry successfully created!"
         redirect to "/shoe_entries/#{@shoe_entry.id}"
     end
       redirect to '/shoe_entries/new'
   end
-
+#flash messages must end in redirects
 
 
   #show route shoe entry; dynamic route
@@ -68,8 +67,7 @@ end
       if logged_in? && @shoe_entry.user == current_user
       #delete the entry
       @shoe_entry.destroy
-      #flash message that item was successfully deleted
-      #go somewhere
+      flash[:message] = "Entry successfully deleted."
       redirect '/shoe_entries'
     else
       redirect '/shoe_entries'

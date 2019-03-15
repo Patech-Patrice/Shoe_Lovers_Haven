@@ -35,6 +35,7 @@ post '/login' do
      # redirect to the user's show page
      redirect to "/users/#{@user.id}"
    else
+     flash[:message] = "Your credentials are invalid. Please create an account or try again."
      # redirect user to login page
      #give user an error that login was incorrect
      redirect to '/login'
