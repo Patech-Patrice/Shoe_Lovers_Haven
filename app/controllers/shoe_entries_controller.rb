@@ -64,7 +64,7 @@ end
 
   delete '/shoe_entries/:id/delete' do
     @shoe_entry = ShoeEntry.find_by(id: params[:id])
-      if logged_in? && @shoe_entry.user == current_user
+      if logged_in? && @shoe_entry.user.id == current_user.id
       #delete the entry
       @shoe_entry.destroy
       flash[:message] = "Entry successfully deleted."

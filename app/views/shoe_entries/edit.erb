@@ -1,12 +1,29 @@
-<center><h1>Edit Shoe Entry</h1><center><br><br><br><br>
-  <form  class="" method="post" action="/shoe_entries/<%= @shoe_entry.id %>/<%= @shoe_entry.id %>">
-    <input id="hidden" type="hidden" name="_method" value="PATCH">
-    <p>Shoe Name:</p> <input type="text" name="name" value= <%= @shoe_entry.name%> ><br>
-    <br>
+
+<div class="container">
+  <form class="" action="/shoe_entries" method="post">
+    <h1>Edit Entry Here: </h1>
+    <h3>Note: All fields optional <em>except</em> "Name".</h3>
+    <!-- name -->
+    <div class="form-group">
+      <label for="name">Name: </label>
+    <input type="text" name="name" class="form-control" required>
+    </div>
+
+    <!-- brand  -->
+   <div class="form-group">
+     <label for="brand">Brand</label>
+     <input type="text" name="brand" class="form-control">
+   </div>
 
 
-
-    <button type="submit" name="" value="Edit Entry">Edit Entry</button>
+   <!-- Style -->
+    <div class="form-group">
+      <label for="style">Style</label>
+      <input type="text" name="style" class="form-control">
+    </div>
+      <input type="submit" name="" value="Create Entry">
+  </form>
+</div>
 
   </form>
   <br><br><br>

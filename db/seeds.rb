@@ -6,7 +6,4 @@ patrice = User.create(name: "Patrice", email: "patrice@patrice.com", password: "
 
 #Create some shoe ShoeEntries
 
-ShoeEntry.create(name: "Christian Louboutin", user: patrice)
-
-#Use AR to pre-associate data:
-patrice.shoe_entries.create!(name: "Jimmy Choo")
+ShoeEntry.create(name: "Pigalle Follies", brand: "Christian Louboutin", style: "Heel" user: patrice)
