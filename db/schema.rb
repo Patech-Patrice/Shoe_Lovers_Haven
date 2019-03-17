@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20190306181310) do
     t.string   "name"
     t.string   "brand"
     t.string   "style"
+    t.string   "image_url"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -19,7 +19,7 @@ class ShoeEntriesController < ApplicationController
       redirect '/'
     else
         #create a new entry
-        @shoe_entry = ShoeEntry.create(name: params[:name], brand: params[:brand], style: params[:style], user_id: current_user.id)
+        @shoe_entry = ShoeEntry.create(name: params[:name], brand: params[:brand], image_url: params[:image_url], style: params[:style], user_id: current_user.id)
         flash[:message] = "Entry successfully created!"
         redirect to "/shoe_entries/#{@shoe_entry.id}"
     end
@@ -54,7 +54,7 @@ end
     @shoe_entry = ShoeEntry.find_by(id: params[:id])
     if logged_in? && @shoe_entry.user == current_user
         #modify(update) the shoe entry
-        @shoe_entry.update(name: params[:name], brand: params[:brand], style: params[:style])
+        @shoe_entry.update(name: params[:name], brand: params[:brand],style: params[:style], image_url: params[:image_url])
       redirect "/shoe_entries/#{params[:id]}"
     else
       redirect "/users/#{current_user.id}/show"
