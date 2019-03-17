@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+<head>
 
 <h3><%= @shoe_entry.name %></h3>
 <h2><%= @shoe_entry.brand %></h2>
@@ -5,15 +8,12 @@
 
 
       <br>
-      <%  if @shoe_entry.user_id == current_user.id %>
+      <font color="red"><%  if @shoe_entry.user_id == current_user.id %>
       <a href='/shoe_entries/<%=@shoe_entry.id%>/edit'><%= @shoe_entry.id %> Edit Entry</a><br>
-      <a href=""> Delete Entry</a>
-
       <form class="" action='/shoe_entries/<%=@shoe_entry.id%>/delete' method="post">
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" name="" value="Delete this Entry">
-
-
       </form>
-
-       <% end %>
+      <% end %></font>
+    </head>
+    </html>

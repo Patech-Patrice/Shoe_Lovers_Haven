@@ -1,4 +1,4 @@
-Here is where the form will live for a new shoe entry
+
 
 <div class="container">
   <form class="" action="/shoe_entries" method="post">
@@ -6,20 +6,26 @@ Here is where the form will live for a new shoe entry
     <h3>Note: All fields optional <em>except</em> "Name".</h3>
     <!-- name -->
     <div class="form-group">
-      <label for="name">Name: </label>
+      <b><label for="name">Name: </label></b>
     <input type="text" name="name" class="form-control" required>
     </div>
 
     <!-- brand  -->
    <div class="form-group">
-     <label for="brand">Brand</label>
+     <b><label for="brand">Brand</label></b>
      <input type="text" name="brand" class="form-control">
    </div>
 
 
+   <!-- image URL  -->
+   <div class="form-group">
+    <b><label for="image">Image URL:</label></b>
+    <input type="text" name="image" class="form-control">
+   </div>
+
    <!-- Style -->
     <div class="form-group">
-      <label for="style">Style</label>
+      <b><label for="style">Style</label></b>
       <input type="text" name="style" class="form-control">
     </div>
       <input type="submit" name="" value="Create Entry">
