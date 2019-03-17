@@ -2,30 +2,29 @@
 <html>
   <head>
     <meta charset="utf-8"/>
+    <style type="text/css">
+    body {
+      background-image:url('/img/LaceLoubs.jpg');
+      font-family: Georgia, Times serif;}
+      h1, h2 {
 
+      }
+
+    </style>
     <title>True Shoe Lovers Haven</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/stylesheets/main.css"/>
+    <link href="/css/bootstrap.css" rel="stylesheet" >
+    <link href="/css/bootstrap-responsive.css"rel="stylesheet">
   </head>
-
   <body>
-
-
-    <div class="wrapper">
-
-
+    <div class="container">
       <br><br>
-
-
       <%if logged_in? %>
-
       <div class="nav">
         <a href="/shoe_entries"> All Shoe Entries</a><br>
         <a href="/shoe_entries/new">New Shoe Entry</a><br>
         <a href="/logout">Logout</a><br>
       </div>
         <%end %>
-
           <% if flash[:message] %>
             <h5><%= flash[:message] %></h5>
           <% end %>
@@ -38,7 +37,7 @@
       </footer>
 
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
   </body>
 </html>
