@@ -49,18 +49,20 @@ end
 
 
   # this method finds and modifies the shoe entry
-  patch '/shoe_entries/:id/:d' do
+  patch '/shoe_entries/:id' do
     #find the shoe entry
     @shoe_entry = ShoeEntry.find_by(id: params[:id])
     if logged_in? && @shoe_entry.user == current_user
         #modify(update) the shoe entry
         @shoe_entry.update(name: params[:name], brand: params[:brand],style: params[:style], image_url: params[:image_url])
+      flash[:message] = "Entry successfully edited!"
       redirect "/shoe_entries/#{params[:id]}"
     else
       redirect "/users/#{current_user.id}/show"
     end
     redirect '/'
   end
+
 
   delete '/shoe_entries/:id/delete' do
     @shoe_entry = ShoeEntry.find_by(id: params[:id])

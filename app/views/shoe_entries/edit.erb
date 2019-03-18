@@ -1,22 +1,27 @@
 
 <div class="container">
-  <form class="" action="/shoe_entries" method="post">
+
+
+  <form class="" action="/shoe_entries/<%=@shoe_entry.id%>" method="post">
     <font color="red"><h1>Edit Entry Here: </h1></font>
     <font color="red"><h3>Note: All fields optional <em>except</em> "Name".</h3></font>
     <!-- name -->
     <div class="form-group">
+      <input type="hidden" name="_method" value="patch">
       <b><label for="name">Name: </label></b>
     <input type="text" name="name"  placeholder="<%=@shoe_entry.name %>"class="form-control" required>
     </div>
 
     <!-- brand  -->
    <div class="form-group">
+       <input type="hidden" name="_method" value="patch">
      <b><label for="brand">Brand:</label></b>
      <input type="text" name="brand" placeholder="<%=@shoe_entry.brand %>" class="form-control">
    </div>
 
    <!-- image URL  -->
    <div class="form-group">
+       <input type="hidden" name="_method" value="patch">
     <b><label for="image_url">Image URL:</label></b>
     <input type="text" name="image_url" placeholder="<%=@shoe_entry.image_url %>"class="form-control">
    </div>
@@ -24,10 +29,11 @@
 
    <!-- Style -->
     <div class="form-group">
+        <input type="hidden" name="_method" value="patch">
       <b><label for="style">Style:</label></b>
       <input type="text" name="style" placeholder="<%=@shoe_entry.style %>"class="form-control">
     </div>
-      <input type="submit" name="" value="Create Entry">
+      <input type="submit" name="" value="Edit Entry">
   </form>
 </div>
 
