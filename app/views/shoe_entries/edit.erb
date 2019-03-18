@@ -6,26 +6,26 @@
     <!-- name -->
     <div class="form-group">
       <b><label for="name">Name: </label></b>
-    <input type="text" name="name" class="form-control" required>
+    <input type="text" name="name"  placeholder="<%=@shoe_entry.name %>"class="form-control" required>
     </div>
 
     <!-- brand  -->
    <div class="form-group">
      <b><label for="brand">Brand:</label></b>
-     <input type="text" name="brand" class="form-control">
+     <input type="text" name="brand" placeholder="<%=@shoe_entry.brand %>" class="form-control">
    </div>
 
    <!-- image URL  -->
    <div class="form-group">
-    <b><label for="image">Image URL:</label></b>
-    <input type="text" name="image" class="form-control">
+    <b><label for="image_url">Image URL:</label></b>
+    <input type="text" name="image_url" placeholder="<%=@shoe_entry.image_url %>"class="form-control">
    </div>
 
 
    <!-- Style -->
     <div class="form-group">
       <b><label for="style">Style:</label></b>
-      <input type="text" name="style" class="form-control">
+      <input type="text" name="style" placeholder="<%=@shoe_entry.style %>"class="form-control">
     </div>
       <input type="submit" name="" value="Create Entry">
   </form>
