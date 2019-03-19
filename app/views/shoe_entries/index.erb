@@ -3,7 +3,8 @@
 <% @shoe_entries.each do |shoe_entry| %>
 <b><%= shoe_entry.brand %></b><br>
    <b><%=shoe_entry.name %></b><br>
-   <b><%= shoe_entry.image_url %></b>
    <b><%= shoe_entry.style %></b><br>
+   <a href="/shoe_entries/<%=shoe_entry.id%>"><b><%= shoe_entry.url %></a></b><br>
+
   <h4><a href="/shoe_entries/<%=shoe_entry.id%>"><%= shoe_entry.created_at %></a></h4><br><br>
 <% end %>
