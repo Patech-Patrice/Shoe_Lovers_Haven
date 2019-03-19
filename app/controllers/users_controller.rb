@@ -14,7 +14,6 @@ post '/signup' do
     redirect to "/users/#{@user.id}"
   else
     #shows not valid input
-    #good UX would be to show a message to the user giving them an error
     redirect to '/signup'
   end
 end

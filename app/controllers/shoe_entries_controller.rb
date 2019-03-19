@@ -6,7 +6,7 @@ class ShoeEntriesController < ApplicationController
     erb :'shoe_entries/index'
   end
 
-  #show user list of shoes
+  #creates new shoe
   get '/shoe_entries/new' do
     erb :'/shoe_entries/new'
   end
@@ -34,7 +34,7 @@ class ShoeEntriesController < ApplicationController
   erb :'shoe_entries/show'
   end
 
-  get '/shoe_entries/:id/edit' do
+  get '/shoe_entries/:id/edit' do #loads the edit form
     @shoe_entry = ShoeEntry.find_by(id: params[:id])
     if logged_in?
     if @shoe_entry.user == current_user
@@ -48,7 +48,7 @@ class ShoeEntriesController < ApplicationController
 end
 
 
-  # this method finds and modifies the shoe entry
+  # edit action
   patch '/shoe_entries/:id' do
     #find the shoe entry
     @shoe_entry = ShoeEntry.find_by(id: params[:id])
