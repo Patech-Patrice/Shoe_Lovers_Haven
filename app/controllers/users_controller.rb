@@ -43,7 +43,7 @@ post '/login' do
 
 # user SHOW route
   get '/users/:id' do
-    @user = User.find_by(id: params[:id])
+    @shoe_entries = current_user.shoe_entries
     erb :'users/show'
   end
 

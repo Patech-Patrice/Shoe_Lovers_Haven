@@ -1,3 +1,14 @@
 
-<font color="red"><h3><%= @user.name %>'s Shoe Haven Collection</h3></font>
-    <font color="red">Email:<h4><%= @user.email %></h4></font>
+
+
+<% @shoe_entries.each do |shoe_entry| %>
+<b><%= shoe_entry.brand %></b><br>
+   <b><%=shoe_entry.name %></b><br>
+   <b><%= shoe_entry.style %></b><br>
+   <img src="<%=shoe_entry.url%>" height="120" width="120">
+
+  <h4><a href="/shoe_entries/<%=shoe_entry.id%>"><%= shoe_entry.created_at %></a></h4><br><br>
+<% end %>
+
+<font color="red"><h3><%= @current_user.name %>'s Shoe Haven Collection</h3></font>
+    <font color="red">Email:<h4><%= @current_user.email %></h4></font>

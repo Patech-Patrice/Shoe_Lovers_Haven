@@ -11,10 +11,6 @@ class ShoeEntriesController < ApplicationController
     erb :'/shoe_entries/new'
   end
 
-  get '/shoe_entries/show' do
-    "Hello World"
-  end
-
 
   # post request to create a new shoe entry and save it to the database
   # only want to save entries with content

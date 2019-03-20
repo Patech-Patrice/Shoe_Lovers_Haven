@@ -17,7 +17,7 @@
       <br><br>
       <%if logged_in? %>
       <div class="nav">
-      <a href="/shoe_entries/show"> Your Shoe Collection </a><br>
+      <a href="/users/:id"> Your Shoe Collection </a><br>
         <a href="/shoe_entries"> All Shoe Entries</a><br>
         <a href="/shoe_entries/new">New Shoe Entry</a><br>
         <a href="/logout">Logout</a><br>
@@ -27,7 +27,7 @@
             <h5><%= flash[:message] %></h5>
           <% end %>
 
-        
+
 
         <div class="wrapper">
           <%= yield %>
