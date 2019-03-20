@@ -11,6 +11,11 @@ class ShoeEntriesController < ApplicationController
     erb :'/shoe_entries/new'
   end
 
+  get '/shoe_entries/show' do
+    "Hello World"
+  end
+
+
   # post request to create a new shoe entry and save it to the database
   # only want to save entries with content
   # only create an entry if the user is logged in
@@ -73,6 +78,7 @@ end
       redirect '/shoe_entries'
     else
       redirect '/shoe_entries'
-end
-end
+    end
+  end
+
 end
