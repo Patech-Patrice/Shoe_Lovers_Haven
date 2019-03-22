@@ -9,21 +9,21 @@
     <div class="form-group">
       <input type="hidden" name="_method" value="patch">
       <b><label for="name">Name: </label></b>
-    <input type="text" name="name"  placeholder="<%=@shoe_entry.name %>"class="form-control" required>
+    <input type="text" name="name"  value="<%=@shoe_entry.name %>"class="form-control" required>
     </div>
 
     <!-- brand  -->
    <div class="form-group">
        <input type="hidden" name="_method" value="patch">
      <b><label for="brand">Brand:</label></b>
-     <input type="text" name="brand" placeholder="<%=@shoe_entry.brand %>" class="form-control">
+     <input type="text" name="brand" value="<%=@shoe_entry.brand %>" class="form-control">
    </div>
 
    <!-- image URL  -->
    <div class="form-group">
        <input type="hidden" name="_method" value="patch">
     <b><label for="url">Image URL:</label></b>
-    <input type="text" name="url" placeholder="<%=@shoe_entry.url %>"class="form-control">
+    <input type="text" name="url" value="<%=@shoe_entry.url %>"class="form-control">
    </div>
 
 
@@ -31,7 +31,7 @@
     <div class="form-group">
         <input type="hidden" name="_method" value="patch">
       <b><label for="style">Style:</label></b>
-      <input type="text" name="style" placeholder="<%=@shoe_entry.style %>"class="form-control">
+      <input type="text" name="style" value="<%=@shoe_entry.style %>"class="form-control">
     </div>
       <input type="submit" name="" value="Edit Entry">
   </form>

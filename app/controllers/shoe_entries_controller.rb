@@ -31,22 +31,21 @@ class ShoeEntriesController < ApplicationController
 
   #show route shoe entry; dynamic route
   get '/shoe_entries/:id' do
+    redirect_if_not_logged_in
     @shoe_entry = ShoeEntry.find_by(id: params[:id])
   erb :'shoe_entries/show'
   end
 
   get '/shoe_entries/:id/edit' do #loads the edit form
     @shoe_entry = ShoeEntry.find_by(id: params[:id])
-    if logged_in?
+    redirect_if_not_logged_in
     if @shoe_entry.user == current_user
         erb :'/shoe_entries/edit'
       else
       redirect "users/#{current_user.id}"
     end
-  else
-  redirect '/'
- end
-end
+  end
+
 
 
   # edit action

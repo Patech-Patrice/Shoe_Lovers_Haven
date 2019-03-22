@@ -6,6 +6,10 @@ get '/signup' do
 
 
 post '/signup' do
+    if User.find_by(email: params[:email])
+      flash[:message] = " This email is already is use."
+      redirect to '/signup'
+    end
     if params[:name] != "" && params[:email] != "" && params[:password] != ""
       #valid input
        @user = User.new(name: params[:name], email: params[:email], password: params[:password])
@@ -17,6 +21,7 @@ post '/signup' do
     redirect to '/signup'
   end
 end
+
 
 
 get '/login' do

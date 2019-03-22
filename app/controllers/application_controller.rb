@@ -27,5 +27,11 @@ class ApplicationController < Sinatra::Base
     @current_user ||= User.find_by(id: session[:user_id]) #instance of application controller; instance scope; or =, this saves calls to the database by storing an instance for a user that's already found and logged in.
     end
 
+    def redirect_if_not_logged_in
+      if !logged_in?
+        redirect '/'
+    end
+  end
+
   end
 end
